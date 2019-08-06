@@ -25,8 +25,9 @@ const PACKAGES = {
 
 # Todo
 
-* Make the page more fancy?
+* Start using [wrangler](https://github.com/cloudflare/wrangler) if the JS script gets too complex
 * Maybe use a templating engine like a civilized human being
+* Make the index page more fancy?
 
 # Links
 
