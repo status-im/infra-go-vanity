@@ -1,0 +1,6 @@
+.terraform/
+*.tfstate
+*.tfstate.d/
+*.tfstate.backup
+*.tfvars
+*.retry
