@@ -13,10 +13,22 @@ The whole scrip is [`go_vanity.js`](go_vanity.js) which simply generates some ba
 <meta name="go-import" content="go.status.im/whisper git https://github.com/status-im/whisper ">
 ```
 
+# Configuration
+
+Just edit the `PACKAGES` variable in [`go_vanity.js`](go_vanity.js):
+```javascript
+const PACKAGES = {
+  'go.status.im/something': 'https://github.com/status-im/status-something', /* added */
+  'go.status.im/protocol':  'https://github.com/status-im/status-protocol-go',
+  'go.status.im/status':    'https://github.com/status-im/status-go',
+  'go.status.im/whisper':   'https://github.com/status-im/whisper ',
+}
+```
+
 # Todo
 
 * Make the page more fancy?
-* Maybe use a tempalting engine like a civilized human being
+* Maybe use a templating engine like a civilized human being
 
 # Links
 
