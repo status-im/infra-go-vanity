@@ -7,9 +7,21 @@
  **/
 
 const PACKAGES = {
-  'go.status.im/protocol': 'github.com/status-im/status-protocol-go',
-  'go.status.im/status':   'github.com/status-im/status-go',
-  'go.status.im/whisper':  'github.com/status-im/whisper ',
+  'go.status.im/protocol': 'https://github.com/status-im/status-protocol-go',
+  'go.status.im/status':   'https://github.com/status-im/status-go',
+  'go.status.im/whisper':  'https://github.com/status-im/whisper ',
+}
+
+const genMetaTags = (pkgs) => {
+  return Object.keys(pkgs).map(name => (
+    `<meta name="go-import" content="${name} git ${pkgs[name]}">`
+  ))
+}
+
+const genTabRows = (pkgs) => {
+  return Object.keys(pkgs).map(name => (
+    `<tr><td>${name}</td><td><a href="${pkgs[name]}">${pkgs[name]}</a></td>`
+  ))
 }
 
 const INDEX_HTML = `
@@ -18,33 +30,30 @@ const INDEX_HTML = `
     <head>
         <meta charset="utf-8">
         <title>Status.im Go Vanity</title>
-        <meta name="description" content="">
+        <meta name="description" content="This site hosts metadata for Status.im Go packages.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <meta name="theme-color" content="#fafafa">
+        ${genMetaTags(PACKAGES).join('\n        ')}
     </head>
-
     <body>
-        <p>Nothing here yet...</p>
+        <table>
+            <tr>
+                <th>Alias</th>
+                <th>Origin</th>
+            </tr>
+            ${genTabRows(PACKAGES).join('\n            ')}
+        </table>
     </body>
 </html>
 `
 
-/* handle every new request */
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
-
 /* fetch and modify request object */
-async function handleRequest(request) {
-  return new Response( INDEX_HTML, {
-    headers: { 'Content-Type': 'text/html' }
+const handleRequest = async (request) => {
+  return new Response(INDEX_HTML, {
+    headers: {'Content-Type': 'text/html'}
   })
 }
+
+/* handle every new request */
+addEventListener('fetch', (event) => {
+  event.respondWith(handleRequest(event.request))
+})
