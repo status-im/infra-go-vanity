@@ -10,7 +10,7 @@ This is achieved by use of [CloudFlare Workers](https://developers.cloudflare.co
 
 The whole scrip is [`go_vanity.js`](go_vanity.js) which simply generates some basic HTML which includes the necessary `<meta>` tags for Go Vanty imports which look like this:
 ```html
-<meta name="go-import" content="go.status.im/whisper git https://github.com/status-im/whisper ">
+<meta name="go-import" content="go.status.im/whisper git https://github.com/status-im/whisper">
 ```
 
 # Configuration
@@ -20,8 +20,6 @@ Just edit the `PACKAGES` variable in [`go_vanity.js`](go_vanity.js):
 const PACKAGES = {
   'go.status.im/something': 'https://github.com/status-im/status-something', /* added */
   'go.status.im/protocol':  'https://github.com/status-im/status-protocol-go',
-  'go.status.im/status':    'https://github.com/status-im/status-go',
-  'go.status.im/whisper':   'https://github.com/status-im/whisper ',
 }
 ```
 

@@ -3,13 +3,14 @@
  *
  * For details on this see:
  * - https://developers.cloudflare.com/workers/about/how-workers-work/
+ * - https://developers.cloudflare.com/workers/recipes/vcl-conversion/delivering-custom-responses/
  * - https://developers.cloudflare.com/workers/writing-workers/handling-errors/
  **/
 
 const PACKAGES = {
   'go.status.im/protocol': 'https://github.com/status-im/status-protocol-go',
   'go.status.im/status':   'https://github.com/status-im/status-go',
-  'go.status.im/whisper':  'https://github.com/status-im/whisper ',
+  'go.status.im/whisper':  'https://github.com/status-im/whisper',
 }
 
 const genMetaTags = (pkgs) => {
