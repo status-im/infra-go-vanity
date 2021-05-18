@@ -1,3 +1,5 @@
+## :warning: WARNING: This a legacy repo and is no longer used.
+
 # Description
 
 This repo defines the infrastructure necessary for https://go.status.im/.
